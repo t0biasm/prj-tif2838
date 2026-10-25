@@ -7,7 +7,7 @@ doxygen(
         "PROJECT_NAME = F28P65 Evaluation Board SW",
         "GENERATE_HTML = YES",
         "GENERATE_LATEX = NO",
-        "USE_MDFILE_AS_MAINPAGE = machine/evalBoard/tmdscncd28p65x/README.md",
+        "USE_MDFILE_AS_MAINPAGE = applications/tif2838/README.md",
         "EXTRACT_ALL = YES",
         "EXTRACT_PRIVATE = YES",
         "EXTRACT_STATIC = YES",
@@ -40,6 +40,6 @@ doxygen(
     # The sources of the main target and its dependencies will be included.
     # No compilation will be performed, so compile error won't be reported.
     deps = [
-        "//machine/evalBoard/tmdscncd28p65x/swe/app"
+        "//applications/tif2838/swe/app"
     ],
 )

@@ -3,8 +3,8 @@ cc_library(
     srcs = [],
     hdrs = glob(["*.h"]),
     deps = [
-        "//platforms/c2000:platform_types_h",
+        "@emb_platform//c2000:platform_types_h",
     ],
     includes = ["."],
-    visibility = ["//machine/evalBoard/tmdscncd28p65x:__subpackages__"],
+    visibility = ["//applications/tif2838:__subpackages__"],
 )

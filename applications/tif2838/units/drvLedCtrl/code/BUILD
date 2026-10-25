@@ -1,13 +1,13 @@
 filegroup(
     name = "srcs",
     srcs = glob(["*.c"]),
-    visibility = ["//machine/evalBoard/tmdscncd28p65x:__subpackages__"],
+    visibility = ["//applications/tif2838:__subpackages__"],
 )
 
 filegroup(
     name = "hdrs",
     srcs = glob(["*.h"]),
-    visibility = ["//machine/evalBoard/tmdscncd28p65x:__subpackages__"],
+    visibility = ["//applications/tif2838:__subpackages__"],
 )
 
 cc_library(
@@ -15,8 +15,8 @@ cc_library(
     srcs = [":srcs"],
     hdrs = [":hdrs"],
     deps = [
-        "//platforms/c2000/mcal/f28p65/code:mcal_f28p65x",
+        "@emb_platform//c2000/mcal/f28p65/code:mcal_f28p65x",
     ],
     includes = ["."],
-    visibility = ["//machine/evalBoard/tmdscncd28p65x:__subpackages__"],
+    visibility = ["//applications/tif2838:__subpackages__"],
 )

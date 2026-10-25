@@ -1,0 +1,5 @@
+import %workspace%/toolchain/emb-toolchain/shared.bazelrc
+try-import %workspace%/user.bazelrc
+
+# FreeRTOSConfig.h of this project (consumed by emb-platform's FreeRTOS targets)
+build --@emb_platform//c2000/freertos:config=//applications/tif2838/swe/app/tasks:free_rtos_app_config

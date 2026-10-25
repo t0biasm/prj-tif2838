@@ -6,13 +6,13 @@ cc_library(
         exclude = ["FreeRTOSConfig.h"],
     ),
     deps = [
-        "//machine/evalBoard/tmdscncd28p65x/public:public_types_h",
-        "//machine/evalBoard/tmdscncd28p65x/swe/app:app_defines",
-        "//machine/evalBoard/tmdscncd28p65x/units/drvLedCtrl/code:drvLedCtrl",
-        "//os/freertos:free_rtos_c28x_app",
+        "//applications/tif2838/public:public_types_h",
+        "//applications/tif2838/swe/app:app_defines",
+        "//applications/tif2838/units/drvLedCtrl/code:drvLedCtrl",
+        "@emb_platform//c2000/freertos:free_rtos_c28x_app",
     ],
     includes = ["."],
-    visibility = ["//machine/evalBoard/tmdscncd28p65x/swe/app:__subpackages__"],
+    visibility = ["//applications/tif2838/swe/app:__subpackages__"],
 )
 
 cc_library(
@@ -21,5 +21,5 @@ cc_library(
         "FreeRTOSConfig.h"
     ],
     includes = ["."],
-    visibility = ["//os/freertos/include:__subpackages__"],
+    visibility = ["//visibility:public"],
 )

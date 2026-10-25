@@ -1,0 +1,18 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  tif2838:
+    uses: t0biasm/emb-ci/.github/workflows/build-bazel.yaml@v1.1.0
+    with:
+      project: prj-tif2838
+      target: //applications/tif2838/swe/app:app
+      config: c2000
+      # cc_binary_c2000 outputs: ELF "app" and object dumps
+      artifact-patterns: "app *.elfdmp *.map"
+      # nested submodule (FreeRTOS kernel) is required
+      submodules: "recursive"
+    secrets: inherit

@@ -22,7 +22,3 @@ Compiler downloads authenticate via `~/.netrc`. Then:
 bazel build --config=c2000 //applications/tif2838/swe/app:app
 ```
 The project's `FreeRTOSConfig.h` is selected in `.bazelrc` (`--@emb_platform//c2000/freertos:config=...`).
-
-## Known issues
-- On Linux the build needs the C2000 sandbox fix in emb-toolchain ([PR #1](https://github.com/t0biasm/emb-toolchain/pull/1)); until the submodule is bumped past it, use `--spawn_strategy=local`.
-- No CI workflow yet: it is added together with that submodule bump.

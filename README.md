@@ -5,9 +5,9 @@ Software for the TI TMDSCNCD28P65X evaluation board (TMS320F28P65x, C2000) with 
 | Path | Content |
 |---|---|
 | `applications/tif2838` | Application, units, linker scripts (see its README and `swArchitecture.puml`) |
-| `toolchain/emb-toolchain` | submodule: [emb-toolchain](https://github.com/t0biasm/emb-toolchain), compilers and tooling |
-| `platform/emb-platform` | submodule: [emb-platform](https://github.com/t0biasm/emb-platform), MCU platform code incl. FreeRTOS port |
-| `platform/emb-platform/c2000/freertos/upstream` | nested submodule: TI FreeRTOS kernel (`REL_C2000Ware_v5.05.00.00`) |
+| `emb-toolchain` | submodule: [emb-toolchain](https://github.com/t0biasm/emb-toolchain), compilers and tooling |
+| `emb-platform` | submodule: [emb-platform](https://github.com/t0biasm/emb-platform), MCU platform code incl. FreeRTOS port |
+| `emb-platform/c2000/freertos/upstream` | nested submodule: TI FreeRTOS kernel (`REL_C2000Ware_v5.05.00.00`) |
 
 ## Getting started
 ```

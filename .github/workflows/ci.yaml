@@ -1,20 +1,26 @@
+# .github/workflows/ci.yaml in a project. Identical in every project: the
+# project's own settings are in emb-project.toml ([ci]). Needs the submodule
+# ci/emb-ci (emb-ci at a pinned commit) and the secrets ARTIFACTORY_* (or none:
+# then the build runs without credentials and nothing is uploaded).
 name: ci
 
 on:
   pull_request:
     branches: [ main, "release/**" ]
   push:
-    branches: [ "bot/**" ]    # submodule bumps of the propagation bot
+    branches: [ "bot/**" ]          # submodule bumps and canary branches
 
 jobs:
-  tif2838:
-    uses: t0biasm/emb-ci/.github/workflows/build-bazel.yaml@main
-    with:
-      project: prj-tif2838
-      target: //applications/tif2838/swe/app:app
-      config: c2000
-      # cc_binary_c2000 outputs: ELF "app" and object dumps
-      artifact-patterns: "app *.elfdmp *.map"
-      # nested submodule (FreeRTOS kernel) is required
-      submodules: "recursive"
-    secrets: inherit
+  build:
+    runs-on: [ self-hosted, linux, x64 ]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false          # done by the composite action, as [ci] says
+      - name: Check out emb-ci
+        run: git submodule update --init ci/emb-ci
+      - uses: ./ci/emb-ci/.github/actions/project-build
+        env:
+          ARTIFACTORY_URL: ${{ secrets.ARTIFACTORY_URL }}
+          ARTIFACTORY_USER: ${{ secrets.ARTIFACTORY_USER }}
+          ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_API_KEY }}
